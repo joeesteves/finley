@@ -1,15 +1,86 @@
-parser: "@typescript-eslint/parser"
+:
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+parser: '@typescript-eslint/parser'
 parserOptions:
-  project: "./tsconfig.json"
-extends:
-  - "eslint:recommended"
-  - "plugin:@typescript-eslint/recommended"
-  - "plugin:prettier/recommended"
+  project: true
+  ecmaVersion: esnext
+  sourceType: module
 plugins:
-  - "@typescript-eslint"
-  - "prettier"
+  - '@typescript-eslint'
+  - prettier
 rules:
-  prettier/prettier: "error"
-  @typescript-eslint/no-unused-vars: "warn"
-  @typescript-eslint/explicit-function-return-type: "off"
-
+  indent:
+    - error
+    - 2
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - never
+  '@typescript-eslint/consistent-type-exports': 'error'
+  '@typescript-eslint/consistent-type-imports': 'error'
+  '@typescript-eslint/naming-convention':
+    - warn
+    - format:
+        - 'camelCase'
+      selector: 'default'
+      leadingUnderscore: 'allow'
+    - format:
+        - 'PascalCase'
+      selector:
+        - 'class'
+        - 'interface'
+        - 'typeAlias'
+        - 'typeParameter'
+    - format:
+        - camelCase
+        - PascalCase
+      selector:
+        - import
+    - format:
+        - 'strictCamelCase'
+      selector:
+        - function
+      leadingUnderscore: 'allow'
+    - format:
+        - camelCase
+        - UPPER_CASE
+      selector:
+        - variable
+      leadingUnderscore: 'allow'
+    - format:
+        - PascalCase
+        - camelCase
+      selector:
+        - variable
+      modifiers:
+        - const
+      types:
+        - function
+      leadingUnderscore: 'allow'
+    - format:
+        - PascalCase
+      selector:
+        - variable
+      modifiers:
+        - const
+      filter:
+        regex: Layer|Live|Runtime|Schema|Context
+        match: true
+      leadingUnderscore: 'allow'
+    - format:
+      selector: 'objectLiteralProperty'
+    - format: null
+      selector: function
+      filter:
+        regex: (GET|POST)
+        match: true
+  '@typescript-eslint/no-unused-vars':
+    - error
+    - varsIgnorePattern: '^_'
+      argsIgnorePatte
