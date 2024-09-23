@@ -8,10 +8,46 @@
     "strict": true,
     "skipLibCheck": true,
     "noEmit": true,
-    "exactOptionalPropertyTypes": true
+    "exactOptionalPropertyTypes": true,
+    "paths": {
+      "@server/*": [
+        "./server/*"
+      ],
+      "@client/*": [
+        "./client/*"
+      ],
+      "@components/*": [
+        "./client/components/*"
+      ],
+      "@providers/*": [
+        "./client/providers/*"
+      ],
+      "@config/*": [
+        "./support/config/*"
+      ],
+      "@schemas/*": [
+        "./server/schemas/*"
+      ],
+      "@services/*": [
+        "./server/services/*"
+      ],
+      "@routes/*": [
+        "./server/routes/*"
+      ],
+      "@lib/*": [
+        "./lib/*"
+      ]
+    }
   },
   "include": [
     "./eslint.config.mjs",
-    "server/**/*.ts"
+    "*.ts",
+    "support/**/*.ts",
+    "consumers/**/*.ts",
+    "client/**/*",
+    "server/**/*",
+    "tests/**/*.ts",
+    "lib/**/*.ts",
+    "producers/**/*.ts"
   ]
 }

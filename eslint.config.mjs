@@ -16,6 +16,11 @@ export default tseslint.config(
     },
     rules: {
       '@typescript-eslint/no-empty-object-type': 'off', // Disable the rule here
+      '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
     },
   },
 )
